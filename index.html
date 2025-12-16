@@ -1,155 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dumb Summer – Helen 55</title>
-
-<style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Georgia", serif;
-    }
-
-    .mockup {
-        position: relative;
-        width: 520px;
-        height: 380px;
-    }
-
-    .album {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 300px;
-        height: 380px;
-        background: white;
-        box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-    }
-
-      /* Change The Image if you like. */
-
-    .art {
-        flex: 1;
-        background-image: url("https://i.scdn.co/image/ab67616d0000b2734cdf5dfa0589a4549beb680d");
-        background-size: cover;
-        background-position: center;
-    }
-
-    .info {
-        padding: 18px;
-        text-align: center;
-    }
-
-    .band {
-        font-size: 12px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: #777;
-    }
-
-    .title {
-        font-size: 26px;
-        margin-top: 8px;
-    }
-
-    button {
-        margin-top: 16px;
-        background: none;
-        border: 1px solid #000;
-        padding: 10px 26px;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    button:hover {
-        background: black;
-        color: white;
-    }
-
-    .cd {
-        position: absolute;
-        left: 300px;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(circle at center, #222 0%, #000 70%);
-        animation: spin 7s linear infinite;
-        animation-play-state: paused;
-        box-shadow: 0 0 35px rgba(0,0,0,0.35);
-        z-index: 1;
-    }
-
-    .cd::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background:
-            repeating-radial-gradient(
-                circle,
-                rgba(255,255,255,0.08) 0px,
-                rgba(255,255,255,0.08) 1px,
-                transparent 2px,
-                transparent 6px
-            );
-    }
-
-
-      /* Change this as well */
-
-    .label {
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background-image: url("https://i.scdn.co/image/ab67616d0000b2734cdf5dfa0589a4549beb680d");
-        background-size: cover;
-        background-position: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
-    }
-
-    .hole {
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        background: white;
-        border-radius: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 3;
-    }
-
-    .playing {
-        animation-play-state: running;
-    }
-
-    @keyframes spin {
-        from { transform: translate(-50%, -50%) rotate(0deg); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-</style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="mockup">
 
-    <div class="cd" id="cd">
+    <div class="cd">
         <div class="label"></div>
         <div class="hole"></div>
     </div>
@@ -157,40 +17,12 @@
     <div class="album">
         <div class="art"></div>
         <div class="info">
-            <div class="band">Helen 55</div>
-            <div class="title">Dumb Summer</div>
-            <button id="playBtn">Play</button>
+            <div class="band">boycomma</div>
+            <div class="title">je ne sais quoi</div>
         </div>
     </div>
 
-    <audio id="audio">
-        <source src="dumbsummer.mp3" type="audio/mpeg">
-    </audio>
-
 </div>
-
-<script>
-    const audio = document.getElementById("audio");
-    const cd = document.getElementById("cd");
-    const playBtn = document.getElementById("playBtn");
-
-    playBtn.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play();
-            cd.classList.add("playing");
-            playBtn.textContent = "Pause";
-        } else {
-            audio.pause();
-            cd.classList.remove("playing");
-            playBtn.textContent = "Play";
-        }
-    });
-
-    audio.addEventListener("ended", () => {
-        cd.classList.remove("playing");
-        playBtn.textContent = "Play";
-    });
-</script>
 
 </body>
 </html>
